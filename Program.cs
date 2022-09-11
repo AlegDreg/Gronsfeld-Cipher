@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Shifr
 {
@@ -10,7 +10,7 @@ namespace Shifr
 
         static void Main(string[] args)
         {
-            string key = "187523";
+            int key = 187523;
             string value = "Зашифровать данный текст с помощью шифра Гронсфельда";
 
             Console.WriteLine("Оригинал - " + value + ". Ключ - " + key + "\n");
