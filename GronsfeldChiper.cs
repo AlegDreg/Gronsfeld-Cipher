@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Shifr
@@ -11,9 +11,10 @@ namespace Shifr
             Chars = chars;
         }
 
-        public string Decrypt(string key, string text)
+        public string Decrypt(int key, string text)
         {
             text = text.ToLower();
+            string keystr = key.ToString();
 
             var res = new StringBuilder(text.Length);
 
@@ -23,12 +24,12 @@ namespace Shifr
             {
                 res.Append(
                     DecryptChar(
-                        Convert.ToInt32(key[currentKeyId].ToString()),
+                        Convert.ToInt32(keystr[currentKeyId].ToString()),
                         text[i],
                     Chars));
 
                 currentKeyId++;
-                if (currentKeyId >= key.Length)
+                if (currentKeyId >= keystr.Length)
                 {
                     currentKeyId = 0;
                 }
@@ -59,9 +60,11 @@ namespace Shifr
             throw new Exception();
         }
 
-        public string Encrypt(string key, string text)
+        public string Encrypt(int key, string text)
         {
             text = text.ToLower();
+
+            string keystr = key.ToString();
 
             var res = new StringBuilder(text.Length);
 
@@ -71,11 +74,11 @@ namespace Shifr
             {
                 res.Append(
                     EncrtptChar(
-                        Convert.ToInt32(key[currentKeyId].ToString()),
+                        Convert.ToInt32(keystr[currentKeyId].ToString()),
                         text[i], Chars));
 
                 currentKeyId++;
-                if (currentKeyId >= key.Length)
+                if (currentKeyId >= keystr.Length)
                 {
                     currentKeyId = 0;
                 }
