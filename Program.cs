@@ -16,9 +16,10 @@ namespace Shifr
             Console.WriteLine("Оригинал - " + value + ". Ключ - " + key + "\n");
 
             IEncrtyption encrtyption = new GronsfeldChiper(chars);
+            EncryptionContainer encryptionContainer = new EncryptionContainer(encrtyption);
 
-            var enc = encrtyption.Encrypt(key, value);
-            var dec = encrtyption.Decrypt(key, enc);
+            var enc = encryptionContainer.Encrypt(key, value);
+            var dec = encryptionContainer.Decrypt(key, enc);
 
 
             Console.WriteLine("Зашифрованное - " + enc);
